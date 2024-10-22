@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IoMdSend } from 'react-icons/io';
 import { BsEmojiSmileFill } from 'react-icons/bs';
-import './ChatInput.css';
+import './chatInput.css';
 
 const ChatInput = ({ handleSendMsg }) => {
   const [msg, setMsg] = useState('');
