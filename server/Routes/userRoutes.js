@@ -1,8 +1,8 @@
 const express = require('express');
-const bcrypt = require("bcrypt");
-const multer = require("multer");
-const path = require("path");
-const User = require("../Models/userModel");
+const bcrypt = require('bcrypt');
+const multer = require('multer');
+const path = require('path');
+const User = require('../Models/userModel');
 
 // Create router instance
 const router = express.Router();
@@ -10,7 +10,7 @@ const router = express.Router();
 // Setup multer for image storage
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'images/'); // Directory where images will be stored (create this folder)
+        cb(null, 'images/'); // Directory where images will be stored (make sure this folder exists)
     },
     filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname)); // Rename the file with a timestamp
@@ -44,7 +44,7 @@ const register = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Check if an image was uploaded, else set default image path
-        const profileImage = req.file ? `/uploads/${req.file.filename}` : "../images/avatar.jpg";
+        const profileImage = req.file ? `/images/${req.file.filename}` : "/images/avatar.jpg";
 
         // Create the user with the uploaded image or default avatar
         const user = await User.create({
