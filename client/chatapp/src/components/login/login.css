@@ -1,0 +1,50 @@
+.login-container{
+    background-image: url("../../assets/login-background.jpeg");
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-content-container{
+    display: flex;
+    flex-direction: row;
+}
+@media all and (max-width:550px) {
+    .login-container{ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-content-container{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.chat-logo{
+    color: orange;
+    font-size: 80px;
+}
+.login-form{
+    padding:10px;
+    border-radius: 12px;
+}
+.login-input{
+    margin:10px;
+    border-radius: 6px;
+    border:1px solid; 
+}
+.login-text{
+    color:black;
+    font-family: sans-serif;
+}
+.register-link{
+    text-decoration: underline;
+    font-size: 12px;
+    margin-top: 8px;
+    text-align: center;
+}
