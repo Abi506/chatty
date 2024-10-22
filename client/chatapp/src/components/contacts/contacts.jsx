@@ -36,17 +36,19 @@ const Contacts = ({ contacts, currentUser, changeChat }) => {
                                 <h1 className='each-user-name'>{eachUser.username}</h1>
                             </li>
                         ))}
-                    
-                    {currentUser && (
-                        <li className='each-user-list shadow special-list mt-5 text-white'>
-                            <img 
-                                src={`${plainHost}${currentUser.userAvatarImage}`} 
-                                alt="Current User Avatar" 
-                                className="users-avatar"
-                            />
-                            <h1 className='each-user-name'>{currentUser.username}</h1>
-                        </li>
-                    )}
+                </ul>
+            )}
+            
+            {currentUser && (  // Correct placement of the current user list item
+                <ul className='p-0 m-0'>
+                    <li className='each-user-list shadow special-list text-white'>
+                        <img 
+                            src={`${plainHost}${currentUser.userAvatarImage}`} 
+                            alt="Current User Avatar" 
+                            className="users-avatar"
+                        />
+                        <h1 className='each-user-name'>{currentUser.username}</h1>
+                    </li>
                 </ul>
             )}
         </div>

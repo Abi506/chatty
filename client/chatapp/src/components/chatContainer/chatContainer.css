@@ -2,11 +2,11 @@
 width: 100%;
 }
 .chat-messages{
-    height: 86vh;
+    height: 70vh;
 }
 @media all and (max-width:650px) {
     .chat-messages{
-        height:105vh;
+        height:75vh;
     }
 }
 .chat-header{
