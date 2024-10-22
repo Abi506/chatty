@@ -1,0 +1,8 @@
+.message-container{
+    height: 78vh;
+}
+@media all and (max-width:650px) {
+    .message-container{
+        height:95vh;
+    }
+}

@@ -19,9 +19,9 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { password, email, username, confirmPassword } = values;
+        const { password, email, username, confirmPassword } = values; // Profile image is separate state
 
-        if (password && confirmPassword && email && username) {
+        if (password && confirmPassword && email && username && profileImage) {
             if (password !== confirmPassword) {
                 alert("Password mismatch");
             } else if (password.length < 6) {
@@ -34,9 +34,7 @@ const Register = () => {
                 formData.append("username", username);
                 formData.append("email", email);
                 formData.append("password", password);
-                if (profileImage) {
-                    formData.append("image", profileImage); // Adding profile image to form data
-                }
+                formData.append("image", profileImage); // Adding profile image to form data
 
                 try {
                     const { data } = await axios.post(registerRoute, formData, {
@@ -56,6 +54,8 @@ const Register = () => {
                     setErrorMsg("Error occurred during registration");
                 }
             }
+        } else {
+            setErrorMsg("Please fill all fields and upload a profile image");
         }
     };
 
@@ -74,7 +74,7 @@ const Register = () => {
                     <PiWechatLogo className='text-primary fs-1' />
                     <h1 className='text-primary'>Chatty</h1>
                 </div>
-                <form className='d-flex flex-column shadow-sm p-3 login-form' onSubmit={(event) => handleSubmit(event)}>
+                <form className='d-flex flex-column shadow-sm p-3 login-form' onSubmit={handleSubmit}>
                     <h1 className='fs-3 login-text'>Register</h1>
                     <input
                         type='text'
@@ -82,7 +82,7 @@ const Register = () => {
                         className='p-1 mb-3 login-input'
                         required
                         name="username"
-                        onChange={(e) => handleChange(e)}
+                        onChange={handleChange}
                     />
                     <input
                         type='email'
@@ -90,7 +90,7 @@ const Register = () => {
                         className='p-1 mb-3 login-input'
                         required
                         name="email"
-                        onChange={(e) => handleChange(e)}
+                        onChange={handleChange}
                     />
                     <input
                         type='password'
@@ -98,7 +98,7 @@ const Register = () => {
                         className='p-1 mb-3 login-input'
                         required
                         name="password"
-                        onChange={(e) => handleChange(e)}
+                        onChange={handleChange}
                     />
                     <input
                         type='password'
@@ -106,12 +106,13 @@ const Register = () => {
                         className='p-1 mb-3 login-input'
                         required
                         name="confirmPassword"
-                        onChange={(e) => handleChange(e)}
+                        onChange={handleChange}
                     />
                     <input
                         type="file"
                         className="p-1 mb-3 login-input"
                         accept="image/*"
+                        required
                         onChange={handleImageChange}
                     />
                     {errorMsg && (

@@ -1,0 +1,15 @@
+.chat-input-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.chat-input-element{
+    padding:10px;
+    border-radius: 6px;
+    width: 60vw;
+}
+@media all and (max-width:650px){
+    .chat-input-element{
+        width: 47vw;
+    }
+}

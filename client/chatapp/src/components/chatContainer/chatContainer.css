@@ -1,0 +1,68 @@
+.chat-container-header{
+width: 100%;
+}
+.chat-messages{
+    height: 86vh;
+}
+@media all and (max-width:650px) {
+    .chat-messages{
+        height:105vh;
+    }
+}
+.chat-header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.chat-header-avatar-image{
+    height: 60px;
+    width: 60px;
+    border-radius: 120px;
+}
+.chat-header-username{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    align-self: center;
+    margin-left: 10px;
+}
+.message {
+    display: flex;
+    margin: 5px 0;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+/* Styling for sent messages */
+.sended {
+    justify-content: flex-end;
+}
+
+.sended .content {
+    background-color: #e2b7b7; /* Gray for sent message text */
+    color: black;
+    padding: 10px;
+    border-radius: 15px 15px 15px 0;
+    text-align: right;
+    display: inline-block; /* Makes background only cover the text */
+}
+
+/* Styling for received messages */
+.received {
+    justify-content: flex-start;
+}
+
+.received .content {
+    background-color: #007bff; /* Blue for received message text */
+    color: white;
+    padding: 10px;
+    border-radius: 15px 15px 0 15px;
+    text-align: left;
+    display: inline-block; /* Makes background only cover the text */
+}
+
+/* Additional styling for the chat text */
+.message .content p {
+    margin: 0;
+    font-size: 16px;
+    word-wrap: break-word;
+}
